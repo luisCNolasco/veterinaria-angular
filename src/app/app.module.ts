@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+/*Firebase */
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -15,6 +19,10 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegistrarseComponent } from './components/registrarse/registrarse.component';
+import { ProductoCrudComponent } from './components/administrador/producto-crud/producto-crud.component';
+import { MascotaCrudComponent } from './components/cliente/mascota-crud/mascota-crud.component';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -26,15 +34,24 @@ import { RegistrarseComponent } from './components/registrarse/registrarse.compo
     LoginComponent,
     NavbarComponent,
     FooterComponent,
-    RegistrarseComponent
+    RegistrarseComponent,
+    ProductoCrudComponent,
+    MascotaCrudComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule
+
   ],
-  providers: [],
+  providers: [
+    //{provide:StorageBucket,useValue:'gs://veterinaria-imgs.appspot.com'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

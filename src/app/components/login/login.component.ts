@@ -19,7 +19,7 @@ export class LoginComponent {
   usuarioObtenido: Usuario;
 
   cliente: Cliente;
-
+  empleado:Empleado;
   constructor(
     private router: Router,
     private serviceUsuario: UsuarioService,
@@ -60,7 +60,10 @@ export class LoginComponent {
   }
 
   sesionEmpleado(gmail: string, pass: string) {
-    this.servicioEmpleado.iniciarSesion(gmail, pass).subscribe((data) => {});
-    this.router.navigate(['administrador']);
+    this.servicioEmpleado.iniciarSesion(gmail, pass).subscribe((data) => {
+      this.empleado = data;
+      this.servicioEmpleado.setUser(this.empleado);
+    });
+    this.router.navigateByUrl('/administrador');
   }
 }

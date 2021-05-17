@@ -7,6 +7,7 @@ import { ClienteComponent } from './components/cliente/cliente.component';
 import { AdministradorComponent } from './components/administrador/administrador.component';
 import { RegistrarseComponent } from './components/registrarse/registrarse.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ProductoCrudComponent } from './components/administrador/producto-crud/producto-crud.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,9 @@ const routes: Routes = [
   {path:'producto',component:ProductoComponent},
   {path:'login',component:LoginComponent},
   {path:'cliente',component:ClienteComponent},//,canActivate:[AuthGuard]
-  {path:'administrador',component:AdministradorComponent},//,canActivate:[AuthGuard]
+  {path:'administrador',component:AdministradorComponent,children:[
+    {path:'producto',component:ProductoCrudComponent}
+  ]},//,canActivate:[AuthGuard]
   {path:'registrarse',component:RegistrarseComponent},
   {path:'**',pathMatch:'full',redirectTo:'home'}
 ];

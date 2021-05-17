@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "veterinaria-imgs": {
+      "hosting": {
+        "appVeterinaria": [
+          "veterinaria-imgs"
+        ]
+      }
+    }
+  }
+}
