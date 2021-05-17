@@ -1,0 +1,24 @@
+<div class="contenedor">
+    <form >
+        <!-- autocomplete="off" -->
+    <div class="form-group text-center">
+        <img class="logo"  alt="logo"
+            src="https://firebasestorage.googleapis.com/v0/b/webproject-5b633.appspot.com/o/login.PNG?alt=media&token=528d3f90-64be-4a81-b189-a9dff5d6bb39">
+        <br>
+    </div>
+    <div class="form-group">
+        <label>Usuario:</label>
+        <input [(ngModel)]="usuario" type="text" name="login" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Password:</label>
+        <input [(ngModel)]="password" type="password" name="pass" class="form-control">
+    </div>
+    <input (click)="iniciarSesion()" type="submit" value="Ingresar" class="btn btn-primary btn-block">
+</form>
+<div class="text-center">
+    <a class="registrarse" (click)="registrarse()"> Registrarse</a>
+</div>
+
+
+
